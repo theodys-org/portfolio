@@ -4,7 +4,7 @@ import K from "../constants";
 
 const Sidebar = () => {
   return (
-    <div className="h-screen w-[400px] shadow-2xl flex flex-col px-8 py-12 ">
+    <div className="h-screen w-[400px] shadow-2xl flex flex-col px-8 py-8 ">
       <span className="text-3xl font-bold text-primary text-center">
         iPortfolio
       </span>

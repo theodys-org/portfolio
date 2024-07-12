@@ -7,7 +7,7 @@ const DasboardLayout = () => {
     <div className="flex">
       <Sidebar />
       <div className="bg-secondary w-full">
-        <div className="flex px-16 bg-white py-10 drop-shadow-md items-center">
+        <div className="flex px-16 bg-white py-5 drop-shadow-md items-center">
           <span className="p-3 bg-primary text-white rounded-full shadow-md hover:bg-white hover:text-primary">
             <SquareMenu className="size-10" />
           </span>
