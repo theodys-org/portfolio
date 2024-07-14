@@ -72,4 +72,30 @@ export default {
       total: 4,
     },
   ],
+  SKILLS: [
+    {
+      name: "JavaScript",
+      levelOfProficiency: "Intermediate",
+    },
+    {
+      name: "HTML",
+      levelOfProficiency: "Advanced",
+    },
+    {
+      name: "CSS",
+      levelOfProficiency: "Beginner",
+    },
+    {
+      name: "Typescript",
+      levelOfProficiency: "Beginner",
+    },
+    {
+      name: "React Native",
+      levelOfProficiency: "Beginner",
+    },
+    {
+      name: "Solidity",
+      levelOfProficiency: "Beginner",
+    },
+  ],
 };
