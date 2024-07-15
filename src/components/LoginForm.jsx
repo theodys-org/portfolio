@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { apiLogin } from "../services/auth";
+import { useState } from "react";
 
 const LoginForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -11,16 +15,22 @@ const LoginForm = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
+    setIsSubmitting(true);
     try {
       const res = await apiLogin({
         email: data.email,
         password: data.password,
       });
-      console.log("Response: ", res);
+      console.log("Response: ", res.data);
+      //redirect user to dashboard
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="flex flex-col w-full space-y-1">
@@ -56,7 +66,7 @@ const LoginForm = () => {
         type="submit"
         className="bg-primary text-white w-full p-2 rounded-md font-semibold"
       >
-        Login
+        {isSubmitting ? "Loading..." : "Login"}
       </button>
       <div className="flex gap-x-2 w-full text-center justify-center">
         <p>Don&apos;t have an account?</p>

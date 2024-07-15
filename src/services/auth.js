@@ -10,3 +10,7 @@ export const apiLogin = async (payload) => {
 export const apiCheckUsernameExists = async (userName) => {
   return apiClient.get(`/auth/${userName}`);
 };
+
+export const apiGetUserProfile = async () => {
+  return apiClient.get("/userProfile");
+};
