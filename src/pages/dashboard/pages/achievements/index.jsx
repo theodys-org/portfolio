@@ -1,5 +1,4 @@
-import PagesLayout from "../layouts/pagesLayout";
-
+import PagesLayout from "../../layouts/pagesLayout";
 const Achievements = () => {
   return (
     <PagesLayout headerText="Achievements" buttonText="Add New Achievement">

@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { apiLogin } from "../services/auth";
 
 const LoginForm = () => {
   const {
@@ -8,8 +9,17 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+    try {
+      const res = await apiLogin({
+        email: data.email,
+        password: data.password,
+      });
+      console.log("Response: ", res);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
