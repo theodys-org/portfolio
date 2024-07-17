@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { apiLogin } from "../services/auth";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import Loader from "./Loader";
 
 const LoginForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,8 +24,9 @@ const LoginForm = () => {
         password: data.password,
       });
       console.log("Response: ", res.data);
+      localStorage.setItem("accessToken", res.data.accessToken);
 
-      toast.success(res.data);
+      toast.success(res.data.message);
       setTimeout(() => {
         //redirect user to dashboard
         navigate("/dashboard");
@@ -70,9 +72,9 @@ const LoginForm = () => {
       </div>
       <button
         type="submit"
-        className="bg-primary text-white w-full p-2 rounded-md font-semibold"
+        className="bg-primary text-white w-full p-2 rounded-md font-semibold flex justify-center"
       >
-        {isSubmitting ? "Loading..." : "Login"}
+        {isSubmitting ? <Loader /> : "Login"}
       </button>
       <div className="flex gap-x-2 w-full text-center justify-center">
         <p>Don&apos;t have an account?</p>
