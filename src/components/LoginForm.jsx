@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { apiLogin } from "../services/auth";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,10 +23,15 @@ const LoginForm = () => {
         password: data.password,
       });
       console.log("Response: ", res.data);
-      //redirect user to dashboard
-      navigate("/dashboard");
+
+      toast.success(res.data);
+      setTimeout(() => {
+        //redirect user to dashboard
+        navigate("/dashboard");
+      }, 5000);
     } catch (error) {
       console.log(error);
+      toast.error("An error occured!");
     } finally {
       setIsSubmitting(false);
     }
