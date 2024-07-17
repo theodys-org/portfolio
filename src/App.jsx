@@ -14,6 +14,7 @@ import Experiences from "./pages/dashboard/pages/experiences";
 import AddSkill from "./pages/dashboard/pages/skills/addSkill";
 import AddProject from "./pages/dashboard/pages/projects/addProject";
 import AddExperience from "./pages/dashboard/pages/experiences/addExperience";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const router = createBrowserRouter([
@@ -74,6 +75,10 @@ function App() {
     {
       path: "preview",
       element: <Preview />,
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
   ]);
   return <RouterProvider router={router} />;

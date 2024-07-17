@@ -66,7 +66,7 @@ const Overview = () => {
             className="h-40 shadow-md bg-white p-6 flex flex-col justify-between"
           >
             <div className="flex justify-between">
-              <span className="text-primary">{icon}</span>
+              <span className="text-pink">{icon}</span>
               <span className="text-lg font-semibold">{text}</span>
             </div>
             <span className="text-2xl font-semibold">{total}</span>

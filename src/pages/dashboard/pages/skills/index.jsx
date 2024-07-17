@@ -15,14 +15,14 @@ const Skills = () => {
         {K.SKILLS.map(({ name, levelOfProficiency }, index) => (
           <div
             key={index}
-            className="h-40 shadow-md rounded-xl  flex flex-col p-5"
+            className="h-40 shadow-md rounded-xl  flex flex-col p-5 bg-white"
           >
-            <div className="ml-auto flex gap-x-2">
-              <span className="bg-primary p-2 rounded-full">
-                <Edit className="text-white" />
+            <div className="ml-auto flex ">
+              <span className="hover:bg-pink text-pink hover:text-white p-2 rounded-full flex">
+                <Edit />
               </span>
-              <span className="bg-primary p-2 rounded-full">
-                <TrashIcon className="text-white" />
+              <span className="hover:bg-pink text-pink hover:text-white p-2 rounded-full flex">
+                <TrashIcon />
               </span>
             </div>
             <span>{name}</span>

@@ -203,7 +203,7 @@ const SignUpForm = () => {
       </div>
       <button
         type="submit"
-        className="bg-primary text-white w-full p-2 rounded-md font-semibold"
+        className="bg-pink text-white w-full p-2 rounded-md font-semibold"
       >
         {isSubmitting ? <Loader /> : "Signup"}
       </button>
