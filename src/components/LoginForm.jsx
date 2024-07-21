@@ -13,7 +13,7 @@ const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ reValidateMode: "onBlur", mode: "all" });
 
   const onSubmit = async (data) => {
     console.log(data);

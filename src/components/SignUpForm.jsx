@@ -73,11 +73,8 @@ const SignUpForm = () => {
     try {
       const res = await apiSignUp(payload);
       console.log(res.data);
-      toast.success(res.data);
-
-      setTimeout(() => {
-        navigate("/login");
-      }, 5000);
+      toast.success(res.data.message);
+      navigate("/login");
     } catch (error) {
       console.log(error);
       toast.error("An error occured!");
