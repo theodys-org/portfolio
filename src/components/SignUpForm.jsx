@@ -17,7 +17,9 @@ const SignUpForm = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({ reValidateMode: "onBlur", mode: "all" });
+
+  console.log("ERRORS: ", errors);
 
   const checkUserName = async (userName) => {
     setIsUsernameLoading(true);
@@ -100,7 +102,10 @@ const SignUpForm = () => {
             className=" border-2 p-2 rounded-md"
             {...register("firstName", {
               required: "First name is required",
-              //   minLength: 2,
+              minLength: {
+                value: 2,
+                message: "length must be more than 2 characters",
+              },
             })}
           />
           {errors.firstName && (
@@ -119,7 +124,10 @@ const SignUpForm = () => {
             className=" border-2 p-2 rounded-md"
             {...register("lastName", {
               required: "Last name is required",
-              minLength: 2,
+              minLength: {
+                value: 2,
+                message: "length must be more than 2 characters",
+              },
             })}
           />
           {errors.lastName && (
@@ -152,7 +160,10 @@ const SignUpForm = () => {
             className=" border-2 p-2 rounded-md"
             {...register("userName", {
               required: "User name is required",
-              minLength: 2,
+              minLength: {
+                value: 2,
+                message: "length must be more than 2 characters",
+              },
             })}
           />
           {errors.userName && (
@@ -194,7 +205,10 @@ const SignUpForm = () => {
           className="border-2 p-2 rounded-md"
           {...register("password", {
             required: "Password is required",
-            minLength: 8,
+            minLength: {
+              value: 8,
+              message: "Password length must be more than 8 characters",
+            },
           })}
         />
         {errors.password && (
