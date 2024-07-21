@@ -84,8 +84,8 @@ const SignUpForm = () => {
   };
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex gap-x-5">
+    <form className="space-y-6 w-full" onSubmit={handleSubmit(onSubmit)}>
+      <div className="grid lg:grid-cols-2 gap-5 w-full">
         <div className="flex flex-col w-full space-y-1">
           <label htmlFor="firstName" className="font-semibold">
             Firstname
@@ -130,7 +130,7 @@ const SignUpForm = () => {
           )}
         </div>
       </div>
-      <div className="flex gap-x-5">
+      <div className="grid lg:grid-cols-2  gap-5 w-full">
         <div className="flex flex-col w-full space-y-1">
           <label htmlFor="otherNames" className="font-semibold">
             Other Names
