@@ -10,7 +10,7 @@ const DasboardLayout = () => {
   const [profile, setProfile] = useState();
 
   const token = getToken();
-  const getUserAvatar = async () => {
+  const getUserProfile = async () => {
     try {
       const response = await apiGetProfile();
       const userProfileData = response?.data.profile;
@@ -22,7 +22,7 @@ const DasboardLayout = () => {
 
   useEffect(() => {
     if (token) {
-      getUserAvatar();
+      getUserProfile();
     }
   }, []);
 
