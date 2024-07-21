@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { BallCanvas } from "./canvas";
 import SectionLayout from "../layouts";
 import { technologies } from "../../../constants/preview";

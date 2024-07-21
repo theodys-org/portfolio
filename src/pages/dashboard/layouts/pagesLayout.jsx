@@ -1,6 +1,5 @@
 import { PlusCircleIcon } from "lucide-react";
 
-// eslint-disable-next-line react/prop-types
 const PagesLayout = ({ headerText, buttonText, children, onClick }) => {
   return (
     <div className="p-10 flex flex-col gap-y-16">

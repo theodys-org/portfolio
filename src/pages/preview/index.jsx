@@ -1,3 +1,4 @@
+import { useLoaderData } from "react-router-dom";
 import {
   About,
   Contact,
@@ -12,6 +13,9 @@ import {
 } from "./components";
 
 const Preview = () => {
+  const data = useLoaderData();
+
+  console.log("🚀 ~ Preview ~ data:", data);
   return (
     <div className="relative z-0 bg-primary">
       <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">

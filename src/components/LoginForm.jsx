@@ -23,19 +23,17 @@ const LoginForm = () => {
         email: data.email,
         password: data.password,
       });
-      console.log("Response: ", res.data);
       localStorage.setItem("accessToken", res.data.accessToken);
-
+      // setTimeout(() => {
       toast.success(res.data.message);
-      setTimeout(() => {
-        //redirect user to dashboard
-        navigate("/dashboard");
-      }, 5000);
+      navigate("/dashboard");
+      // }, 300);
     } catch (error) {
       console.log(error);
       toast.error("An error occured!");
     } finally {
       setIsSubmitting(false);
+      // clearTimeout(timeout);
     }
   };
 
@@ -76,7 +74,7 @@ const LoginForm = () => {
       >
         {isSubmitting ? <Loader /> : "Login"}
       </button>
-      <div className="flex gap-x-2 w-full text-center justify-center">
+      <div className="flex flex-col md:flex-row gap-x-2 w-full text-center justify-center">
         <p>Don&apos;t have an account?</p>
         <Link to="/signup" className="underline">
           Sign up

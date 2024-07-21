@@ -1,5 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
 import { styles } from "../../../styles";
 import SectionLayout from "../layouts";
