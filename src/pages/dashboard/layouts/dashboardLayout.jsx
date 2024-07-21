@@ -10,6 +10,7 @@ const DasboardLayout = () => {
   const [profile, setProfile] = useState();
 
   const token = getToken();
+
   const getUserProfile = async () => {
     try {
       const response = await apiGetProfile();
