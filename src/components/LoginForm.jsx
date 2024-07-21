@@ -24,16 +24,14 @@ const LoginForm = () => {
         password: data.password,
       });
       localStorage.setItem("accessToken", res.data.accessToken);
-      // setTimeout(() => {
+
       toast.success(res.data.message);
       navigate("/dashboard");
-      // }, 300);
     } catch (error) {
       console.log(error);
       toast.error("An error occured!");
     } finally {
       setIsSubmitting(false);
-      // clearTimeout(timeout);
     }
   };
 

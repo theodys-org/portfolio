@@ -19,8 +19,6 @@ const SignUpForm = () => {
     formState: { errors },
   } = useForm({ reValidateMode: "onBlur", mode: "all" });
 
-  console.log("ERRORS: ", errors);
-
   const checkUserName = async (userName) => {
     setIsUsernameLoading(true);
     try {
@@ -232,18 +230,3 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
-
-// useEffect(() => {
-//   const debouncedSearch = debounce(async () => {
-//     // console.log("I've been called");
-//     if (userNameWatch) {
-//       checkUserName(userNameWatch);
-//     }
-//   }, 1000);
-
-//   debouncedSearch();
-
-//   return () => {
-//     debouncedSearch.cancel();
-//   };
-// }, [userNameWatch]);

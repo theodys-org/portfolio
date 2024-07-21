@@ -11,6 +11,7 @@ export const getToken = () => localStorage.getItem("accessToken");
 
 export const clearToken = () => localStorage.removeItem("accessToken");
 
+//Interceptor to add token to authorization header for every request
 apiClient.interceptors.request.use(
   (config) => {
     // Check if there's a token in localStorage
@@ -27,7 +28,7 @@ apiClient.interceptors.request.use(
   }
 );
 
-// Add a response interceptor
+// Another interceptor to handle response errors
 apiClient.interceptors.response.use(
   (response) => {
     // If a response is received, just return it unchanged
