@@ -25,7 +25,7 @@ const DasboardLayout = () => {
 
   const getAvatar = () => {
     if (!user) return "N/A";
-    const initials = `${user.firstName[0]}${user.lastName[0]}`;
+    const initials = `${firstName[0]}${lastName[0]}`;
     return initials.toUpperCase();
   };
 

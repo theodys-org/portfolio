@@ -15,6 +15,13 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm({ reValidateMode: "onBlur", mode: "all" });
 
+  const addToLocalStorage = (accessToken, user) => {
+    localStorage.setItem("accessToken", accessToken);
+    localStorage.setItem("firstName", user.firstName);
+    localStorage.setItem("lastName", user.lastName);
+    localStorage.setItem("userName", user.userName);
+  };
+
   const onSubmit = async (data) => {
     console.log(data);
     setIsSubmitting(true);
@@ -25,8 +32,7 @@ const LoginForm = () => {
       });
       console.log(res.data);
 
-      localStorage.setItem("accessToken", res.data.accessToken);
-      localStorage.setItem("user", res.data.user);
+      addToLocalStorage(res.data.accessToken, res.data.user);
 
       toast.success(res.data.message);
       setTimeout(() => {
