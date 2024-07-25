@@ -14,7 +14,6 @@ import {
 
 const Preview = () => {
   const data = useLoaderData();
-
   console.log("🚀 ~ Preview ~ data:", data);
   return (
     <div className="relative z-0 bg-primary">

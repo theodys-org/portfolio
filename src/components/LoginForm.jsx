@@ -23,10 +23,15 @@ const LoginForm = () => {
         email: data.email,
         password: data.password,
       });
+      console.log(res.data);
+
       localStorage.setItem("accessToken", res.data.accessToken);
+      localStorage.setItem("user", res.data.user);
 
       toast.success(res.data.message);
-      navigate("/dashboard");
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 500);
     } catch (error) {
       console.log(error);
       toast.error("An error occured!");

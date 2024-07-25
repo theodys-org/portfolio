@@ -1,29 +1,18 @@
 import { Link, Navigate, Outlet } from "react-router-dom";
 import Sidebar from "../../../components/Sidebar";
 import { SquareMenu } from "lucide-react";
-import { apiGetProfile } from "../../../services/profile";
 import { useEffect, useState } from "react";
-import { getToken } from "../../../services/config";
-import { toast } from "react-toastify";
+import { getToken, getUser } from "../../../services/config";
 
 const DasboardLayout = () => {
-  const [profile, setProfile] = useState();
+  const [user, setUser] = useState();
 
   const token = getToken();
 
-  const getUserProfile = async () => {
-    try {
-      const response = await apiGetProfile();
-      const userProfileData = response?.data.profile;
-      setProfile(userProfileData);
-    } catch (error) {
-      toast.error("An error occured");
-    }
-  };
-
   useEffect(() => {
     if (token) {
-      getUserProfile();
+      const user = getUser();
+      setUser(user);
     }
   }, []);
 
@@ -32,8 +21,8 @@ const DasboardLayout = () => {
   }
 
   const getAvatar = () => {
-    if (!profile) return "N/A";
-    const initials = `${profile.firstName[0]}${profile.lastName[0]}`;
+    if (!user) return "N/A";
+    const initials = `${user.firstName[0]}${user.lastName[0]}`;
     return initials.toUpperCase();
   };
 
@@ -54,7 +43,7 @@ const DasboardLayout = () => {
             </span>
           </Link>
         </div>
-        <Outlet context={[profile, setProfile]} />
+        <Outlet context={[user, setUser]} />
       </div>
     </div>
   );
