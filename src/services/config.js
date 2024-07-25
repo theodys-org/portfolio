@@ -7,17 +7,29 @@ export const apiClient = axios.create({
   baseURL: baseUrl,
 });
 
-export const getToken = () => localStorage.getItem("accessToken");
-export const clearToken = () => localStorage.removeItem("accessToken");
+export const getDetails = () => {
+  const user = {};
 
-export const getUser = () => localStorage.getItem("user");
-export const clearUser = () => localStorage.removeItem("user");
+  user.token = localStorage.getItem("accessToken");
+  user.firstName = localStorage.getItem("firstName");
+  user.lastName = localStorage.getItem("lastName");
+  user.userName = localStorage.getItem("userName");
+
+  return user;
+};
+
+export const clearDetails = () => {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("firstName");
+  localStorage.removeItem("lastName");
+  localStorage.removeItem("userName");
+};
 
 //Interceptor to add token to authorization header for every request
 apiClient.interceptors.request.use(
   (config) => {
     // Check if there's a token in localStorage
-    const token = getToken();
+    const { token } = getDetails();
     if (token) {
       // Set the token in the Authorization header
       config.headers.Authorization = `Bearer ${token}`;
@@ -40,8 +52,7 @@ apiClient.interceptors.response.use(
     // If there's an error in the response (like a 401), handle it here
     if (error.response.status === 401) {
       // remove accessToken from local storage
-      clearToken();
-      clearUser();
+      clearDetails();
       // Handle 401 error (e.g., logout user and redirect to login page)
       window.location.replace("/login");
     }

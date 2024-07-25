@@ -20,12 +20,12 @@ const Overview = () => {
     experiences: 0,
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [profile] = useOutletContext();
+  const [user] = useOutletContext();
 
   const getPreviewLink = () => {
-    if (!profile) return "/preview/theody";
+    if (!user) return "/preview/theody";
 
-    return `/preview/${profile.userName}`;
+    return `/preview/${user.userName}`;
   };
 
   const getData = async () => {

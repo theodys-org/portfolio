@@ -2,19 +2,22 @@ import { Link, Navigate, Outlet } from "react-router-dom";
 import Sidebar from "../../../components/Sidebar";
 import { SquareMenu } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getToken, getUser } from "../../../services/config";
+import { getDetails } from "../../../services/config";
 
 const DasboardLayout = () => {
   const [user, setUser] = useState();
 
-  const token = getToken();
+  const { token, firstName, lastName, userName } = getDetails();
 
   useEffect(() => {
     if (token) {
-      const user = getUser();
-      setUser(user);
+      setUser({
+        firstName,
+        lastName,
+        userName,
+      });
     }
-  }, [token]);
+  }, []);
 
   if (!token) {
     return <Navigate to="/login" />;
