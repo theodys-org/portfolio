@@ -14,7 +14,7 @@ const DasboardLayout = () => {
       const user = getUser();
       setUser(user);
     }
-  }, []);
+  }, [token]);
 
   if (!token) {
     return <Navigate to="/login" />;
